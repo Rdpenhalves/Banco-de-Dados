@@ -165,4 +165,4 @@ R:
   Atributo: Data de entrada e Saída 
   PK: Data de Entrada e Saída
   FK: Sala
-  FK: Máquina
+  FK: Máquina;
