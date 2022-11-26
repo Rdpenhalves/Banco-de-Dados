@@ -1,0 +1,168 @@
+Rodrigo Dante Penhalves
+
+Lista de Exercícios 1 e 2
+1) Um prato é composto por diversos ingrediente, sendo usados no mínimo 3
+ingrediente em cada prato. Um ingrediente pode estar em diversos pratos, ou
+nenhum.
+
+R: 
+  Entidade - Prato e Ingrediente 
+  Prato - Ingediente - (1 - n)
+  Ingredientes - Prato - (n - 1)
+PK: Receita
+
+2) Um produto possui um e somente um Engenheiro responsável. Um engenheiro
+pode ser responsável por diversos produtos.
+
+R:
+  Produto - Engenheiro - (1 - 1)
+  Produto - Engenheiro - (1 - n)
+  Entidade - Produto
+  Entidade - Engenheiro
+PK: Engenheiro
+
+3) Uma pessoa possui apenas uma Nacionalidade. Em nosso sistema cada registro de
+Nacionalidade nem sempre está associado a uma pessoa, mas pode estar associada a
+Muitas.
+
+R: 
+  Relacionamento (1 - 1)
+  Entidade - Pessoa
+  Atributo - Nacionalidade  
+  PK: Pessoa
+
+4) Um País contém muitas Ufs. Cada UF pertence a apenas um País. Cada UF contém
+muitos municípios, sendo que cada município pertence a apenas uma UF. Cada
+município possui vários bairros, sendo que cada bairro está contido a apenas um
+município.
+
+R: 
+  País - UFs (1 - n)
+  UFs - País (N - 1)
+  Entidade: País 
+  Atributo: UF  
+  PK: UF
+
+5) Uma licença para taxista pode pertencer a apenas uma pessoa física, ou pode
+momentaneamente estar vaga, sem uma pessoa física. Uma pessoa física pode ter
+no máximo 1 licença para taxista, mas nem toda pessoa física possui uma licença
+para taxista.
+
+R: 
+  Taxista - Pessoa Física - (1 - 1)
+  Pessoa Física - Taxista - (1 - 1)
+  Entidade: Pessoa física.
+  Entidade: Taxista 
+  Atributo: Vagas. 
+  PK: Pessoa física
+  
+  6) Um Filme possui apenas um gênero obrigatoriamente. Sendo que um gênero pode
+ou não estar associado a um filme
+
+ R: 
+   Filme - Gênero (1 - 1)
+   Gênero - Filme (1 - 1)
+   Entidade: Filme
+   Atributo: Gênero
+   PK: Sinopse
+  
+  7) Um Filme possui vários personagens, sendo que deve possuir pelo menos 1
+personagem. Um personagem pertence a apenas um filme.
+
+R: 
+  Filme - Vários personagens (1 - N)
+  Um personagem - Um filme (1 - 1)
+  Entidade: Filme
+  Atributo: Personagem
+  
+  8) Um médico possui uma ou várias especialidades. Cada especialidade pode estar
+associada a um ou vários médicos. Deve-se registras o ano em que o Médico se
+diploma na Especialidade.
+
+R: 
+  Médico - Especialidade (1 - N)
+  Especialidade - Médico (1 - N)
+  Médico - Ano (1 - N)
+  Ano - Médico (1 - N)
+
+  Entidade: Médico
+  Entidade: Especialidade
+  
+  9) Um funcionário trabalha em apenas um departamento. Um departamento tem
+diversos funcionários e pelo menos um trabalhando nele. Contudo um Funcionário
+pode ser o gerente do departamento, mas cada departamento possui apenas um
+gerente.
+
+R:
+  Funcionário - Departamento (1 - N)
+  Departamento - Funcionário (1 - N)
+  Entidade: Departamento
+  Atributo: Funcionário
+  PK: Lista de Funcionários que trabalham no Departamento
+  
+  10) Uma música é composta por um ou vários artistas, sendo que um artista pode ou
+não compor músicas.
+
+R: 
+  Música - Artista (1 - 1)
+  Artista - Música (1 - N)
+  Entidade - Música 
+  Atributo - Artistas
+  PK: Artistas que trabalham na Música
+  Entidade: Ano
+  PK: Diploma de Especialidade
+  
+  11) Uma marca de Carros comercializa um ou diversos modelos. Cada modelo pertence a 
+  apenas uma marca.
+
+R: 
+  Carro de 1 ou diversos modelos (1 - N)
+  Modelo - Marca (1 - 1)
+  Entidade: Carros
+  Atributo: Modelos
+  PK: Marca 
+  
+  12) Um Zoológico possui diversas áreas de exibição. Cada área de exibição possui um
+conjunto de Famílias de Animais (Répteis, Pássaros, Grandes Felinos, etc) em exibição.
+Por segurança as raças ficam agrupadas em apenas uma área do Zoológico. Cada família
+de Animais possui várias raças.
+
+R:
+  Zoológico - Exibição (1 - N)
+  Exibição - Conjunto de Famílias (N - 1)
+  Conjunto de Famílias - Raças (1-N)
+  Entidade: Zoológico
+  Atributo Composto - Exibição, Conjunto de Famílias e Raças
+  PK: Conjunto de Famílias
+  
+  13) Um Sistema operacional de Celular pode ser instalado em diversos Modelos de Celular.
+Cada Modelo de Celular executa apenas um sistema Operacional. Todo Modelo de
+Celular possui apenas uma marca. Sendo que cada Marca pode possuir muitos Modelos
+de celular.
+
+R:
+  S.O - Celular (1- N)
+  Modelo - S.o (1 - 1)
+  Marca - Modelo (1 - N)
+  Entidade : Celular 
+  Atributo : Sistema Operacional 
+  Atributo : Modelo
+  Entidade: Marca 
+  PK: Modelos 
+  
+  14) A Fatec possui 28 Salas. Cada sala possui de 1 a 25 máquinas cada, sendo que cada
+máquina não é fixa na sala, podendo ser transferida. Deve-se saber quando a máquina é
+colocada na sala e quando ela e retiradas ( data de entrada e data de saída). Não há
+limites de vezes para uma máquina ser transferidas em Sala. Obs.: uma máquina pode
+estar fora de uma sala em manutenção temporariamente.
+
+R: 
+  Sala - Máquina (N - N)
+  Máquina - Entrada e Saída (N - 1)
+  Tabela de Associação - Sala e Máquina (1 para 1/2 para 2/3 para 3/4 para 4...)
+  Entidade: Sala
+  Atributo: Máquinas 
+  Atributo: Data de entrada e Saída 
+  PK: Data de Entrada e Saída
+  FK: Sala
+  FK: Máquina
