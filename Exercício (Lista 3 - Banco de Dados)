@@ -1,0 +1,294 @@
+1) Produto ( Auto-Relac)
+Uma empresa controla os seguintes dados sobre seus produtos: Código, descrição, Peso, Volume, Unidade de medida do Peso e Unidade de medida do volume, Preço de Custo e Preço de Venda.
+Determinados produtos podem ser compostos por outros Produtos da mesma empresa. Essa relação deve ser controlada. Exemplo: O Produto X é composto por 5 unidades do Produto B e 1 do Produto A.
+ 
+Produto
+Unidade
+Produto Composto
+Cód.produto PK
+Cod.Unidade PK
+cód.produto pai (FK)
+cód produto filho (FK)    
+(PK)
+Descrição
+descrição
+ 
+Peso
+Cód unidade peso (FK)
+
+Volume
+Cód unidade volume (FK)
+
+Preço custo
+Data preço custo
+
+Preço venda
+Data preço venda
+
+2) Monitor ( Auto-Relac)
+Uma faculdade adota o sistema de Monitorias concedendo 15% desconto na
+mensalidade para os Monitores. Todos os Monitores são alunos matriculados na
+Faculdade. Cada Monitor é responsável por um conjunto de alunos em uma disciplina.
+A monitoria é válida por um ano letivo.
+Obs. Lembre-se que um Aluno Monitor em determinada Disciplina, pode ser Aluno
+Monitorado em outras disciplinas.
+
+Aluno
+Disciplina
+Aluno/Disciplina
+Cód.aluno (PK)
+Cod.disciplina(PK)
+data.Início
+data.Fim
+cód.aluno (FK)
+cod.disciplina (FK)
+(PK)
+cod.aluno.Monitor(FK)
+
+3) Cartório ( Auto-Relac)
+No momento do registro de nascimento o escrevente do cartório deve cadastrar a
+nova pessoa no sistema. É importante associar a nova pessoa ao seu pai e mãe (que
+também são pessoas registradas no sistema). Prever que a pessoa cadastrada pode
+não ter Pai e/ou Mãe (órfão).
+São dados da pessoa: Nome, data nascimento, sexo, Cidade de Nascimento, UF
+Nascimento, Pai, Mãe, e Hospital Nascimento.
+
+Registro
+Filho
+Pai
+Mãe
+Pai/Mãe
+cód Registro (PK)
+Cód.filho(PK)
+cód.registro(FK)
+cód.registro(FK)
+cod.pai (FK)
+cod.mãe(FK)
+(PK)
+hospital (FK)
+Nome
+Cód filho (FK)
+data de nascimento
+sexo
+cidade
+UF
+cód pai (FK)
+Cód mãe (FK)
+Cód.registro(FK)
+hospital
+
+4) Empresa ( Auto-Relac)
+Uma empresa mantém os seguintes dados de seus funcionários: Nome, dt Nascimento, Cidade/Estado Nascimento, Cargo, Salário, dt Admissão e dt demissão. Cada funcionário pode possuir um Supervisor. O Supervisor também é um funcionário. Um Supervisor pode ser responsável por diversos funcionários. Nem todo funcionário é supervisor.
+
+Empresa
+Supervisor
+Funcionário
+Empresa/Funcionário
+Nome
+cód.empresa(FK)
+cod.funcionário(FK)
+(PK)
+Dt nascimento
+UF de nascimento
+Cargo funcionário
+Nome do funcionário
+Cód. Supervisor (PK)
+Cód. Funcionário (PK)
+Nome do Supervisor
+Cód. Funcionário (PK)
+Cód. Supervisor (FK)
+Salário supervisor(FK)
+Salário funcionário (PK)
+Dt Admissão (PK)
+Dt Demissão (PK)
+
+5) Cartório Casamento ( Auto-Relac)
+São dados da pessoa: Nome, data nascimento, sexo, Cidade de Nascimento, UF Nascimento, Pai, Mãe, e Hospital Nascimento.
+Em um cartório de casamento devem ser controlados os dados referentes à situação civil de pessoas. A situação cível pode ser: Casada, Divorcio, Viúvo ou União Estável. A data inicial e final da situação deve ser cadastrada.
+Pessoa
+Pai
+Mãe
+Pai/Mãe
+cód. nome PK
+cód. pai PK
+cód. mãe PK
+cód. pai FK
+cód. mãe FK
+nome
+data de nascimento
+Sexo
+cód. cidade
+UF
+cód. pai FK
+cod. mãe FK
+situação civil
+hospital
+
+6) Pré-Requisito ( Auto-Relac)
+Uma Faculdade deve controlar as disciplinas que são pré-requisito para outras
+disciplinas. Sobre a disciplina sabe-se: Código, Descrição, Carga horária, Ementa. Uma
+disciplina pode possuir ou não um conjunto de disciplinas pré-requisito.
+Faculdade
+Disciplina
+Faculdade/Disciplina
+Cód. faculdade PK
+cod. disciplina PK
+Cód. faculdade FK
+Cód. disciplina FK
+sequencial…
+PK
+Cód. disciplina FK
+nome
+descrição
+carga horária
+ementa
+
+7) Curso ( Auto-Relac)
+Uma empresa de treinamento oferece diversos cursos. Sobre os cursos sabe-se: título,
+descrição, preço e carga horária. Os cursos podem ser vendidos separadamente ou
+em pacotes. Um pacote de cursos é composto por dois ou mais cursos. Em um pacote cada curso possui um desconto especial.
+Curso
+Pacote de Cursos
+Pacote/curso
+cod.curso(PK)
+cod.pacote (PK)
+cod.curso(FK)
+cod.pacote(FK)
+sequencial …
+(PK)
+Título
+desconto
+Descrição
+preço
+carga horária
+
+8) Projetos ( Auto-Relac)
+Uma empresa de construção Naval possui diversos projetos em andamento. Sobre o
+projeto sabe-se: Código, Cliente, Data de Início, Data de emprega, Preço Final,
+Descrição Projeto, Engenheiro Responsável pelo Projeto. Para melhor administrar o
+Projeto Principal, esse é dividido em diversos Subprojetos. Os dados de controle dos
+subprojetos são mesmo de Projeto principal.
+
+Projeto
+subprojeto
+projeto/subprojeto
+cod_projeto (PK)
+cod_subProjeto (PK)
+cod_projeto (FK)
+cod_subProjeto(FK)
+sequencial…
+(PK)
+cliente
+data_inicio
+data_inicio
+descrição
+data_entrega
+data_entrega
+engenheiro
+cliente
+preço
+descrição
+engenheiro
+preço
+
+9) Filme ( Auto-Relac)
+Um possui diversos papéis. Cada papel pertence a apenas um filme. Cada papel possui
+nome, quantidade de tempo em cena e descrição do personagem. Sobre o Filme sabe-se o
+Título, ano de filmagem, ano de lançamento, seus diretores.
+Lembretes: um filme possui direção geral, direção fotografia, direção de figurino,
+Direção de Arte, Direção de Som, Direção de efeitos especiais, entre outras. Sendo que
+mais de uma pessoa pode ser responsável por uma direção. Como também uma pessoa pode acumular mais de uma direção.
+Filme
+Papel
+Filme/Papel
+Pessoa
+Direção/Filme
+Cód. filme PK
+Cód. papel PK
+Cód. filme FK
+Cód. papel FK
+sequencial… PK
+Cód. pessoa PK
+Cód. direção FK
+Cód. filme FK
+Cód. pessoa FK
+sequencial…
+PK
+Titulo
+Nome
+Ano de filmagem
+Tempo em cena
+Ano de lançamento
+Descrição
+Diretores
+
+10) Seguradora ( Ent. Forte/Fracas)
+Uma seguradora deve controlar os dados de seus clientes que são pessoa física, tais como
+nome, CPF, data de nascimento, habilitação, profissão, nacionalidade e telefones de contato (DDI, DDD, NR e Operadora). A Apólice de Seguro somente existe para um veículo. Contudo um veículo pode ter diversas apólices na seguradora ( no decorrer do tempo). Cada Apólice possui um cliente que a possui, que necessariamente não é o dono do veículo, que também é uma Pessoa Física. Todo veículo possui uma pessoa física que é dona do veículo, que necessariamente não é o  dono da apólice. Os dados referentes ao veículo devem ser armazenados. Cada veículo possui um ou mais condutores registrados em cada apólice, e, sobre esses deve-se armazenar os seguintes dados: nome, idade e parentesco com o cliente. Os condutores são cadastrados para o carro segurando somente.
+Cada apólice pode ou não possui registro de sinistros. Os dados de um Sinistro são data, local, descrição, condutor. O Sinistro pertence a apenas uma apólice de seguros.
+
+Pessoa Física 
+Seguradora
+Veículo 
+Nome
+CPF
+Data de nascimento
+
+11) NF
+Uma nota fiscal de venda possui os seguintes atributos:
+Empresa Emissora, Número da NF, Tipo de NF, data emissão, valor total e cliente.
+Uma Nota fiscal possui de um a vários itens da Nota Fiscal. Cada item de nota fiscal se
+refere-se a um produto comercializado. Sobre cada item de nota sabe-se: produto, qtde
+do produto, valor unitário produto, valor desconto produto, valor pago do item. Um mesmo produto pode constar em dois itens diferentes da mesma nota fiscal. Cada item de Nota Fiscal pertence a apenas uma nota fiscal.
+Sobre os produtos sabe-se: Nome, Código único, preço e fabricante.
+
+12) Funcionários
+Uma empresa possui mantém os seguintes dados sobre seus funcionários: Nome, data
+Nascimento, CPF, RG, sexo, endereço, telefone residencial e celular, e cargo.
+Um empregado trabalha em um e somente um departamento. Contudo um empregado é o gerente do departamento. Cada departamento possui apenas um gerente.
+O salário é associado ao cargo. Sobre o cargo sabe-se: descrição, sigla, salário e
+qualificações.
+Um funcionário pode possuir dependentes. Um dependente deve ser um familiar. Não há limite para a quantidade de dependentes para um Empregado. Sobre o dependente deve-se manter os seguintes dados: nome, grau de parentesco, data nascimento, sexo, CPF e RG. Um dependente pertence a apenas um empregado.
+
+13) Financiamento
+Um Financiamento possui um Nr de contrato, um data de início, qtde de parcelas,
+valor do financiamento.
+Todo financiamento é ligado a uma pessoa física, com nome, cpf, data de nascimento,
+sexo, nacionalidade, profissão, Empresa Em que trabalha, salário e Endereço, bairro,
+Cidade e UF de Residência.
+Ao ser gerado o financiamento são geradas também todas as parcelas de pagamento.
+Cada parcela pertence a apenas um financiamento. Cada parcela possui um número
+única, valor da parcela, valor de desconto da parcela, valor de multa da parcela, valor
+pago na parcela, data do pagamento da parcela e o banco em que a parcela será paga.
+
+14) Cartão de Crédito
+Uma pessoa física pode possuir um ou vários cartões de crédito. Cada Cartão de
+crédito possui bandeira, valor de limite de gastos, data de validade de CVV de
+validação.
+Cada cartão possui suas faturas, emitidas uma a cada mês. Cada fatura pertence a
+apenas um cartão de crédito.
+Cada fatura possui despesas incluídas nelas. Cada despensa possui um empresa na
+qual foi feita, uma data de lançamento, um valor e a parcela (se for o caso).
+Cada Fatura possui ainda seu valor de emissão, data de vencimento, valor pago, valor
+de multa, data de pagamento e banco onde foi pago.
+
+15) Tabela de Preços
+Em uma loja todos os produtos existentes podem passar por variações de preços. O preço  pode variar para maior ou menor por um período de tempo. Deve-se manter registro desta variação. Exemplo: um produto A tem um preço de R$10,00 de 1-1- 2019 até 31-3-2019. Depois de 1-4-2019 a 30-04-2019 passa a custar R$11,00. Sendo que desde 1-5-2019 passou ao valor de R $10,50.
+Sobre o produto sabe-se seu Código único, descrição, peso, volume, Empresa
+Fabricante e %Imposto.
+
+Produto
+Variação do preço
+cod_produto (PK)
+cod_variação (PK)
+descrição
+cod_produto (FK)
+data_inicio_variacao
+data_fim_variacao
+(PK)
+peso
+volume
+empresa
+fabricante
+% imposto
+cod_variação (FK)
